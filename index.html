@@ -140,7 +140,7 @@
         }
 
         #hero {
-            background: linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('https://scontent.fnbo9-1.fna.fbcdn.net/v/t39.30808-6/491843750_1196083835329765_5291664243185572929_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=6lSMGQ8R13AQ7kNvwElVYXA&_nc_oc=Adl47KhBv5yUIJd_UU5p5Pwk1eQDA071NCf8h0e9Bq3MdcZoHziBVysrsu_1UcMJKN0&_nc_zt=23&_nc_ht=scontent.fnbo9-1.fna&_nc_gid=nf7Lb-GDXESa82Jpu29XAg&oh=00_AfRJYbniZcedjg1q3wFf0E6Bg2DNKCqtEqU3Yk7CbLYU4g&oe=68813E7D') center/cover no-repeat;
+            background: linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('491843750_1196083835329765_5291664243185572929_n.jpg') center/cover no-repeat;
             color: var(--white);
             text-align: center;
             padding-top: 120px; /* Account for fixed header */
@@ -1038,410 +1038,348 @@
         <nav>
             <a href="#hero" class="logo">
                 <span class="logo-icon"><i class="fas fa-hand-holding-heart"></i></span>
-                <span class="logo-text">Hon. Newtoh <span>Kajunior</span></span>
+                <div class="logo-text">Hon. Newtoh <span>Kajunior</span></div>
             </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#vision" class="nav-link">My Vision</a></li>
+                <li><a href="#work" class="nav-link">My Work</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#news" class="nav-link">News</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#vision">Vision</a></li>
-                <li><a href="#work">My Work</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
         </nav>
     </header>
 
-    <section id="hero">
-        <div class="hero-content">
-            <div class="hero-image-container">
-                <img src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t39.30808-6/518356650_1259597802311701_1789636324632430951_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=DgF6GFQG8yAQ7kNvwHxiJOS&_nc_oc=Adk-TSj7m_9_EfwtjTY4Y_PMYY49zeiUx_PkCZP2oI9dNoYRymhltOjDuppdh8o7QYM&_nc_zt=23&_nc_ht=scontent.fnbo10-1.fna&_nc_gid=nAjFVLJTycu2dWILAgkqiw&oh=00_AfS1mAJXQbvaF5GzBWg2xXt5qcGUTMhmiLfY3PtuWm5DDw&oe=6881496F" class="profile-photo" alt="Hon. Newtoh Kajunior (Kiriinya)">
-                <div class="hero-badge">Leadership & Service</div>
+    <main>
+        <section id="hero">
+            <i class="fas fa-arrow-down scroll-indicator"></i>
+            <div class="hero-content">
+                <div class="hero-image-container">
+                    <img src="518356650_1259597802311701_1789636324632430951_n.jpg" alt="Hon. Newtoh Kajunior" class="profile-photo">
+                    <span class="hero-badge">Serving the People</span>
+                </div>
+                <h1>Hon. Newtoh Kajunior (KIRIINYA)</h1>
+                <p class="intro-text">
+                    A compassionate nurse and dedicated community leader, committed to serving the people of Akachiu,Ward and raising a generation of young men and women of substance.
+                </p>
+                <div class="slogan">
+                    <span>#RESTORING AKACHIU HOPE</span>
+                    <span>#MBEU E NGAI</span>
+                    <span>#Kajunior</span>
+                </div>
             </div>
-            <h1>Hon. Newtoh Kajunior (Kiriinya)</h1>
-            <p class="intro-text">Dedicated Nurse | Community Leader | Voice for Maua</p>
-            <div class="slogan">
-                <span>#MBEU E NGAI ✅</span>
-                <span>#RestoringAkachiuHope ✅</span>
-            </div>
-        </div>
-        <a href="#highlights" class="scroll-indicator" aria-label="Scroll down">
-            <i class="fas fa-chevron-down"></i>
-        </a>
-    </section>
+        </section>
 
-    <section class="highlights">
-        <div class="highlight-container">
-            <div class="highlight-card">
-                <i class="fas fa-users"></i>
-                <span class="count" data-target="12500">0</span>
-                <p>Community Members Served</p>
+        <section id="about">
+            <h2 class="section-title">About Hon. Newtoh Kajunior</h2>
+            <div class="about-container">
+                <div class="about-img">
+                    <img src="IMG-20250728-WA0049.jpg" alt="Newtoh Kajunior with community members">
+                </div>
+                <div class="about-text">
+                    <p>
+                        Hon. Newtoh Kajunior is a dedicated and compassionate leader whose journey is defined by a deep commitment to serving his community. As a practicing nurse, he has witnessed firsthand the healthcare challenges faced by many families in Akachiu,Ward. This experience has fueled his passion to improve living standards and promote well-being for all.
+                    </p>
+                    <p>
+                        Beyond his medical career, Newtoh has emerged as a prominent community mobilizer and politician. He believes in a collaborative approach to development, where every voice is heard and every person is valued. His vision extends beyond politics; he aims to build a future where young people have opportunities to thrive and where the elderly are cared for with dignity.
+                    </p>
+                    <p>
+                        He is a strong advocate for **education, healthcare, and youth empowerment**, believing these pillars are essential for a prosperous society. His leadership is guided by principles of integrity, transparency, and a relentless drive to make a positive impact.
+                    </p>
+                    <div class="education">
+                        <h3>My Education Journey</h3>
+                        <div class="education-item">
+                            <div class="education-icon"><i class="fas fa-user-graduate"></i></div>
+                            <div class="education-info">
+                                <h4>Chuka University</h4>
+                                <p>Bachelor of Science in Nursing - 2021</p>
+                            </div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-icon"><i class="fas fa-school"></i></div>
+                            <div class="education-info">
+                                <h4>Nkubu High School</h4>
+                                <p>Kenya Certificate of Secondary Education (KCSE)</p>
+                                <h4> Amwamba primary</h4>
+                                <p>Kenya Certificate of Primary Education (KCPE)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="highlight-card">
-                <i class="fas fa-clinic-medical"></i>
-                <span class="count" data-target="28">0</span>
-                <p>Healthcare Initiatives</p>
-            </div>
-            <div class="highlight-card">
-                <i class="fas fa-graduation-cap"></i>
-                <span class="count" data-target="750">0</span>
-                <p>Youth Empowered</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-container">
-            <div class="about-text">
-                <p><strong>Newtoh Kajunior (Kiriinya)</strong> is a dedicated healthcare professional and passionate public servant from Maua, Kenya. With a deep-rooted commitment to improving his community, he combines his medical expertise with political leadership to create meaningful change.</p>
-                <p>Born and raised in the Meru region, Newtoh understands the challenges faced by his people firsthand. His journey from humble beginnings to professional success serves as an inspiration to many young Kenyans. He believes in empowering the youth, ensuring access to quality healthcare, and fostering sustainable local development.</p>
+        <section id="vision">
+            <h2 class="section-title">My Vision & Core Values</h2>
+            <div class="vision-container">
+                <p>
+                    My vision is to create a vibrant and prosperous community in Akachiu,Ward, where every individual has the opportunity to achieve their full potential. This vision is built on a foundation of core values that guide every action and decision I make.
+                </p>
+                <blockquote>
+                    "The future belongs to those who believe in the beauty of their dreams. Together, we can build a stronger, healthier, and more empowered community."
+                </blockquote>
+                <div class="values">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Integrity</h3>
+                        <p>Upholding honesty and moral principles in all dealings, ensuring trust and accountability with the people.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-users"></i></div>
+                        <h3>Unity</h3>
+                        <p>Bringing people together to work towards a common goal, fostering a sense of belonging and collective strength.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h3>Compassion</h3>
+                        <p>Demonstrating empathy and care for the vulnerable, and advocating for the well-being of every community member.</p>
+                    </div>
+                </div>
                 
-                <div class="education">
-                    <h3>Education Background</h3>
-                    <div class="education-item">
-                        <div class="education-icon">
-                            <i class="fas fa-graduation-cap"></i>
+                </div>
+            </div>
+        </section>
+
+        <section id="work">
+            <h2 class="section-title">My Work and Campaigns</h2>
+            <div class="work-container">
+                <div class="initiatives">
+                    <div class="initiative">
+                        <div class="initiative-img">
+                            <img src="IMG-20250728-WA0037.jpg" alt="Community Outreach">
                         </div>
-                        <div class="education-info">
-                            <h4>Nkubu High School</h4>
-                            <p>Secondary Education</p>
+                        <div class="initiative-info">
+                            <h3>Community Outreach & Development</h3>
+                            <p>
+                                My work is driven by a commitment to grassroots development. I have initiated numerous projects focusing on youth empowerment, improving local infrastructure, and providing essential services to the most vulnerable members of our community. I believe in a bottom-up approach to development, where the needs of the people are at the forefront of every decision.
+                            </p>
                         </div>
                     </div>
-                    <div class="education-item">
-                        <div class="education-icon">
-                            <i class="fas fa-university"></i>
+                    <div class="initiative">
+                        <div class="initiative-img">
+                            <img src="https://scontent.fnbo9-1.fna.fbcdn.net/v/t39.30808-6/432924194_106725350796362_6989448831861053153_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=V34eO7J3lKkQ7kNvwE08Y2I&_nc_zt=23&_nc_ht=scontent.fnbo9-1.fna&_nc_gid=nf7Lb-GDXESa82Jpu29XAg&oh=00_AfB7FvBwYJq-J70jLh0C95c73-4x0V-Vl0d_G6l-gG2XzA&oe=68812C41" alt="Healthcare Initiatives">
                         </div>
-                        <div class="education-info">
-                            <h4>Chuka University</h4>
-                            <p>Bachelor of Science in Nursing</p>
+                        <div class="initiative-info">
+                            <h3>Healthcare & Wellness</h3>
+                            <p>
+                                As a nurse, I understand the importance of accessible healthcare. I have organized medical camps, health awareness seminars, and partnered with local health facilities to ensure our community receives quality medical attention. My goal is to make healthcare a right, not a privilege.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="initiative">
+                        <div class="initiative-img">
+                            <img src="IMG-20250728-WA0027.jpg" alt="Youth Empowerment">
+                        </div>
+                        <div class="initiative-info">
+                            <h3>Youth & Talent Empowerment</h3>
+                            <p>
+                                I am passionate about nurturing the next generation. My campaigns have focused on providing mentorship, facilitating access to vocational training, and creating platforms for young people to showcase their talents and skills, ensuring they have a promising future.
+                            </p>
                         </div>
                     </div>
                 </div>
+                <div class="initiatives-list" style="margin-top: 2rem; padding: 2rem; background-color: var(--light-gray); border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <h3 style="color: var(--green); margin-bottom: 1rem; font-size: 1.5rem;">Events:</h3>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Majirani tournament 2020</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Majirani Tournament 2021</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Akachiu talent show 2023</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Akachiu Talent show &Medical camp 2024</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Kiiji Medical.camp with Bliss</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Was Involved in Ugoti Cultural festival 2023 Committee</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Amwamba sublocation wazee Nchunga tournament and Medical camp</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Antwamuo Nchunga Tournament</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Akachiu Interdenominational Youth seminar</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Akachiu Interdenominational Games</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Assisted some students to join Technical school.including Mukiria,Karumo and nkabune</li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Promoting talents through Mikasa ball issuance to Nceme,Tiira,Kamburu,kambene clubs Kirindine queens and other coming </li>
+                        <li style="margin-bottom: 0.5rem; color: var(--black);"><i class="fas fa-check-circle" style="color: var(--green); margin-right: 10px;"></i>Mega Akachiu premier league 2024 a success tournament whose fruits are now seen in the Current Meru county league,Where Kirindine Apl champions are playing </li>
+                    </ul>
+                </div>
             </div>
-            <div class="about-img">
-                <img src="https://scontent.fnbo9-1.fna.fbcdn.net/v/t39.30808-6/513360329_1246517850286363_1898443988164091060_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=VgdGPZ0WZOAQ7kNvwEkfc3p&_nc_oc=Admqle_n8NCAMtuR_ic-zy2V_cRxoU__weKPMj2ADtwOtHgiWXNO_MYHookWa1ezjr8&_nc_zt=23&_nc_ht=scontent.fnbo9-1.fna&_nc_gid=15Uy89k5thbSsZagcCW9Vw&oh=00_AfRgU2UWpv-cAlky43xmbiUM1p-a7cOkl5wkEiuTotsR_A&oe=68813445" alt="Newtoh Kajunior engaging with community members in Maua, Kenya">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="vision">
-        <h2 class="section-title">Vision & Mission</h2>
-        <div class="vision-container">
-            <p>My vision is to create a community where every individual has the opportunity to thrive, with access to quality healthcare, education, and economic opportunities. My mission is to champion policies and initiatives that foster sustainable growth, social equity, and community well-being in Maua and beyond.</p>
-            
-            <blockquote>
-                "Faith in God, hope for the future, and unwavering service to the community - these are the pillars that guide my leadership and commitment to a brighter tomorrow for all."
-            </blockquote>
+        <section id="gallery">
+            <h2 class="section-title">Photo Gallery</h2>
+            <div class="gallery-grid">
+                <a href="#" class="gallery-item">
+                    <img src="491843750_1196083835329765_5291664243185572929_n.jpg" alt="Gallery Image 1">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </a>
+                <a href="#" class="gallery-item">
+                    <img src="IMG-20250728-WA0046.jpg" alt="Gallery Image 2">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </a>
+                <a href="#" class="gallery-item">
+                    <img src="IMG-20250728-WA0048.jpg" alt="Gallery Image 3">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </a>
+                <a href="#" class="gallery-item">
+                    <img src="IMG-20250728-WA0034.jpg" alt="Gallery Image 4">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </a>
+                <a href="#" class="gallery-item">
+                    <img src="IMG-20250728-WA0023.jpg" alt="Gallery Image 5">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </a>
+                <a href="#" class="gallery-item">
+                    <img src="IMG-20250728-WA0054.jpg" alt="Gallery Image 6">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </a>
+            </div>
+        </section>
 
-            <div class="kenyan-symbols">
-                <div class="symbol">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4f6993ca-ebb5-4648-8445-657064e61b38.png" alt="Kenyan Flag Symbol">
-                    <p>Patriotic Service</p>
+        <section id="news">
+            <h2 class="section-title">Latest News & Updates</h2>
+            <div class="news-container">
+                <div class="news-item">
+                    <h3>Empowering Local Youth through Sports Tournament</h3>
+                    <span class="news-date"><i class="fas fa-calendar-alt"></i> June 2, 2024</span>
+                    <p>
+                        The "Akachiu Premier League 2024," a tournament initiated by Hon. Newtoh Kajunior, successfully concluded, providing a platform for young athletes to showcase their skills. The champions, Kirindine FC, have now advanced to play in the Meru County League, a testament to the talent development in the region.
+                    </p>
+                    <a href="#">Read More &rarr;</a>
                 </div>
-                <div class="symbol">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4f2f2d1d-f977-403c-9101-4157878ed953.png" alt="Lion Symbol">
-                    <p>Strength in Leadership</p>
+                <div class="news-item">
+                    <h3>Successful Medical Camp Provides Free Services</h3>
+                    <span class="news-date"><i class="fas fa-calendar-alt"></i> May 25, 2024</span>
+                    <p>
+                        Hundreds of residents benefited from free medical consultations, screening, and treatment during the recent Medical Camp. The event, a partnership with Bliss Healthcare, addressed critical health needs and raised awareness on preventative care within the community.
+                    </p>
+                    <a href="#">Read More &rarr;</a>
                 </div>
-                    <div class="symbol">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Coat_of_arms_of_Kenya.svg" alt="Coat of Arms of Kenya" width="150">
-  <p>Unity & Progress</p>
-</div>
-
-            </div>
-            
-            <div class="values">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Compassion</h3>
-                    <p>Treating every individual with dignity and understanding, especially the vulnerable, and advocating for their rights.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Service</h3>
-                    <p>Putting the needs of the community above personal interests, working tirelessly for public welfare and good governance.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Innovation</h3>
-                    <p>Finding creative, sustainable, and forward-thinking solutions to complex community challenges and opportunities.</p>
+                <div class="news-item">
+                    <h3>Hon. Newtoh Kajunior Launches New Talent Initiative</h3>
+                    <span class="news-date"><i class="fas fa-calendar-alt"></i> May 10, 2024</span>
+                    <p>
+                        A new initiative to promote local talent has been launched, which includes providing equipment such as Mikasa balls to various clubs. This effort aims to support young men and women in sports and other creative fields.
+                    </p>
+                    <a href="#">Read More &rarr;</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="work">
-        <h2 class="section-title">My Work & Campaigns</h2>
-        <div class="work-container">
-            <div class="initiatives">
-                <div class="initiative">
-                    <div class="initiative-img">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/02092b9a-e212-4d0a-8cc9-4ca903f278ef.png" alt="Newtoh Kajunior conducting a free medical camp in rural Kenya">
-                    </div>
-                    <div class="initiative-info">
-                        <h3>Healthcare Support Initiatives</h3>
-                        <p>Organizing free medical camps, health education programs, and advocating for improved healthcare infrastructure in rural Maua.</p>
-                    </div>
-                </div>
-                <div class="initiative">
-                    <div class="initiative-img">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/edf7f869-5410-4056-b1ca-0ad6969b3816.png" alt="Newtoh Kajunior mentoring young people in a workshop">
-                    </div>
-                    <div class="initiative-info">
-                        <h3>Youth Empowerment & Education</h3>
-                        <p>Developing skills training programs, offering leadership mentorship, and supporting educational opportunities for young Kenyans.</p>
-                    </div>
-                </div>
-                <div class="initiative">
-                    <div class="initiative-img">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6bbfc757-9656-4ca7-9186-f5b9aadabce5.png" alt="Newtoh Kajunior inspecting a community water project">
-                    </div>
-                    <div class="initiative-info">
-                        <h3>Local Development Projects</h3>
-                        <p>Leading efforts to improve local infrastructure, promote sustainable agriculture, and foster small business growth in my constituency.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery">
-        <h2 class="section-title">Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="IMG-20250728-WA0056.jpg" alt="Newtoh Kajunior addressing a large crowd at a political rally">
-                <div class="gallery-overlay" aria-label="View larger image">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b2bb63cf-cb34-4809-a07f-40bed0d83eec.png" alt="Newtoh Kajunior visiting patients in a healthcare facility">
-                <div class="gallery-overlay" aria-label="View larger image">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c3f33fed-6a44-49ca-9603-4d09c1593d49.png" alt="Newtoh Kajunior interacting with students at a school event">
-                <div class="gallery-overlay" aria-label="View larger image">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8cf55854-3c95-4784-a6d7-40462ee2a3d9.png" alt="Newtoh Kajunior distributing supplies in a community outreach program">
-                <div class="gallery-overlay" aria-label="View larger image">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0414af2a-53ce-433a-8bb6-cc5f75455a4a.png" alt="Newtoh Kajunior with his family during a personal moment">
-                <div class="gallery-overlay" aria-label="View larger image">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/223478e8-733b-4d75-a493-4287aa0887b5.png" alt="Newtoh Kajunior cutting the ribbon at a new community project launch">
-                <div class="gallery-overlay" aria-label="View larger image">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="news">
-        <h2 class="section-title">News & Updates</h2>
-        <div class="news-container">
-            <div class="news-item">
-                <h3>Successful Launch of Youth Empowerment Program</h3>
-                <p class="news-date">June 15, 2024</p>
-                <p>Today, we officially launched our new youth skills development program aimed at equipping young people from Maua with vocational skills and entrepreneurial guidance. The initiative saw participation from over 200 youths in its first phase, promising a brighter future for our community.</p>
-                <a href="#" style="color: var(--light-green);">Read more &rarr;</a>
-            </div>
-            <div class="news-item">
-                <h3>Comprehensive Healthcare Awareness Campaign Conducted</h3>
-                <p class="news-date">May 28, 2024</p>
-                <p>Our dedicated team successfully conducted a comprehensive health awareness campaign across various rural areas, reaching over 500 community members with vital information on preventive care, hygiene, and common ailments. This initiative is part of our commitment to accessible healthcare for all.</p>
-                <a href="#" style="color: var(--light-green);">Read more &rarr;</a>
-            </div>
-            
             <div class="fb-container">
-                <h3>Stay Connected!</h3>
-                <p>For the latest real-time updates, community engagements, and insights into my work, please follow me on my official Facebook page:</p>
-                <a href="https://www.facebook.com/your_facebook_page_link" class="social-link" style="display: inline-flex; margin: 1rem 0;" target="_blank" aria-label="Follow on Facebook">
-                    <i class="fab fa-facebook-f"></i>
+                <h3>Stay Connected</h3>
+                <p>For more frequent updates and live interactions, follow my official Facebook page.</p>
+                <a href="https://www.facebook.com/Hon.Kajunior/" target="_blank" class="cta-button">
+                    <i class="fab fa-facebook-f"></i> Follow on Facebook
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact">
-        <h2 class="section-title">Connect With Me</h2>
-        <div class="contact-container">
-            <form id="contactForm" action="#" method="POST"> <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <p style="text-align: center; margin-bottom: 2rem;">
+                    I am always available to listen to your concerns, ideas, and feedback. Your voice is important to me. Please fill out the form below or reach out through my social media channels.
+                </p>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Hon.Kajunior/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required placeholder="Subject of your message">
-                </div>
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-            
-            <div class="social-links">
-                <a href="https://www.facebook.com/your_facebook_page_link" class="social-link" aria-label="Facebook Profile" target="_blank">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://twitter.com/your_twitter_page_link" class="social-link" aria-label="Twitter Profile" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://instagram.com/your_instagram_page_link" class="social-link" aria-label="Instagram Profile" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://linkedin.com/in/your_linkedin_page_link" class="social-link" aria-label="LinkedIn Profile" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+            </div>
+        </section>
+        <div class="cta-banner">
+            <div class="cta-content">
+                <h3>Let's Build a Better Future, Together.</h3>
+                <p>Your support is the driving force behind our community's progress. Join me in this journey.</p>
+                <a href="#contact" class="cta-button">Partner with Me</a>
             </div>
         </div>
-    </section>
-
-    <section class="cta-banner">
-        <div class="cta-content">
-            <h3>Join the Movement for a Better Maua!</h3>
-            <p>Your support and engagement are crucial for building a stronger, more prosperous community. Let's work together to achieve our shared vision.</p>
-            <a href="#contact" class="cta-button">Get Involved Today</a>
-        </div>
-    </section>
+    </main>
 
     <footer>
-        <p>&copy; 2025 Hon. Newtoh Kajunior (Kiriinya). All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 Hon. Newtoh Kajunior. All Rights Reserved. | <a href="#" style="color: var(--accent-gold); text-decoration: none;">Privacy Policy</a></p>
+        </div>
     </footer>
 
     <script>
-    // Define header variable
-    const header = document.querySelector('header');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuToggle.innerHTML = navLinks.classList.contains('active') 
-            ? '<i class="fas fa-times"></i>' 
-            : '<i class="fas fa-bars"></i>';
-    });
-    
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-        });
-    });
-    
-    // Header scroll effect and scroll indicator hide
-    window.addEventListener('scroll', () => {
-        const scrollIndicator = document.querySelector('.scroll-indicator');
-        header.classList.toggle('scrolled', window.scrollY > 50);
-
-        // Hide scroll indicator after scrolling past hero section
-        if (scrollIndicator) {
-            const heroSection = document.getElementById('hero');
-            if (window.scrollY > heroSection.offsetHeight - 100) { // Adjust threshold as needed
-                scrollIndicator.classList.add('hidden');
-            } else {
-                scrollIndicator.classList.remove('hidden');
-            }
-        }
-    });
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - (header.offsetHeight || 80), // Use the header variable here
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-            }
+                
+                // Close mobile menu after clicking a link
+                if (document.body.classList.contains('menu-open')) {
+                    document.body.classList.remove('menu-open');
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
         });
-    });
-    
-    // Animated counters for Highlights section
-    const counters = document.querySelectorAll('.count');
-    const speed = 200; // The lower the speed, the faster the count
 
-    const animateCount = (counter) => {
-        const target = +counter.getAttribute('data-target');
-        let current = 0;
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-        const updateCount = () => {
-            const increment = target / speed;
-            if (current < target) {
-                current = Math.ceil(current + increment);
-                counter.innerText = current.toLocaleString(); // Add comma separators
-                setTimeout(updateCount, 1);
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('header');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                if (scrollIndicator) {
+                    scrollIndicator.classList.add('hidden');
+                }
             } else {
-                counter.innerText = target.toLocaleString();
+                header.classList.remove('scrolled');
+                if (scrollIndicator) {
+                    scrollIndicator.classList.remove('hidden');
+                }
             }
-        };
-        updateCount();
-    };
 
-    const highlightSection = document.querySelector('.highlights');
-    let countersAnimated = false;
+            // Highlight active navigation link on scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !countersAnimated) {
-                counters.forEach(animateCount);
-                countersAnimated = true;
-                observer.unobserve(entry.target); // Stop observing once animated
-            }
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
         });
-    }, {
-        threshold: 0.5 // Trigger when 50% of the section is visible
-    });
 
-    if (highlightSection) {
-        observer.observe(highlightSection);
-    }
-
-    // Basic form submission (you'll need backend for actual sending)
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! Newtoh Kajunior will get back to you soon.');
-            this.reset(); // Clear the form
-            // In a real application, you'd send this data to a server using fetch() or XMLHttpRequest
-        });
-    }
-</script>
-
+        // Initial check for active link
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
 </html>
