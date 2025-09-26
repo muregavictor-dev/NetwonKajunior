@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ==============================
-    // HELPERS
-    // ==============================
     const $ = (sel, parent = document) => parent.querySelector(sel);
     const $$ = (sel, parent = document) => parent.querySelectorAll(sel);
 
@@ -15,24 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = $$('section');
     const navLinksAll = $$('.nav-link');
 
-    // Smooth scroll
-    $$('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', e => {
-            const href = anchor.getAttribute('href');
-            if (href && href !== '#') {
-                e.preventDefault();
-                const target = $(href);
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            }
-            if (menuToggle && navLinks && document.body.classList.contains('menu-open')) {
-                navLinks.classList.remove('active');
-                document.body.classList.remove('menu-open');
-                menuToggle.setAttribute('aria-expanded', 'false');
-            }
+    if ($$('a[href^="#"]').length) {
+        $$('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                const href = anchor.getAttribute('href');
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    const target = $(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
         });
-    });
+    }
 
-    // Mobile toggle
     if (menuToggle && navLinks) {
         const toggleMenu = () => {
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
@@ -41,14 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             menuToggle.setAttribute('aria-expanded', String(!isExpanded));
         };
         menuToggle.addEventListener('click', toggleMenu);
-        menuToggle.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault(); toggleMenu();
-            }
-        });
     }
 
-    // Scroll effects
     function onScrollHandler() {
         if (window.scrollY > 50) {
             header?.classList.add('scrolled');
@@ -63,7 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (scrollY >= section.offsetTop - 150) current = section.id;
         });
         navLinksAll.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href').includes(current));
+            if (link.getAttribute('href')?.includes(current)) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
         });
     }
     window.addEventListener('scroll', onScrollHandler);
@@ -74,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==============================
     $$('.counter').forEach(counter => {
         const update = () => {
-            const target = +counter.getAttribute('data-target');
-            const current = +counter.innerText;
+            const target = +counter.getAttribute('data-target') || 0;
+            const current = +counter.innerText || 0;
             const increment = Math.ceil(target / 200);
             if (current < target) {
                 counter.innerText = current + increment;
@@ -112,11 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==============================
-    // FLOATING SVGS
+    // FLOATING SVGs
     // ==============================
     $$('.floating-svg').forEach(svg => {
         let x = 0, y = 0, angle = Math.random() * 360;
         function float() {
+            if (!svg) return;
             x += Math.cos(angle) * 0.5;
             y += Math.sin(angle) * 0.5;
             svg.style.transform = `translate(${x}px, ${y}px)`;
@@ -131,8 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = $('#particles');
     if (canvas) {
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resize();
         const particles = Array.from({ length: 50 }, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
@@ -154,10 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(animate);
         }
         animate();
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+        window.addEventListener('resize', resize);
     }
 
     // ==============================
@@ -166,13 +157,14 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('.gallery-item').forEach(item => {
         item.addEventListener('click', e => {
             e.preventDefault();
-            const imgSrc = item.querySelector('img').src;
+            const img = item.querySelector('img');
+            if (!img) return;
             const modal = document.createElement('div');
             modal.className = 'lightbox-modal';
             modal.innerHTML = `
                 <div class="lightbox-overlay"></div>
                 <div class="lightbox-content">
-                    <img src="${imgSrc}" alt="Gallery Image">
+                    <img src="${img.src}" alt="">
                     <button class="lightbox-close">&times;</button>
                 </div>
             `;
@@ -180,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const close = () => modal.remove();
             modal.querySelector('.lightbox-overlay').addEventListener('click', close);
             modal.querySelector('.lightbox-close').addEventListener('click', close);
-            document.addEventListener('keydown', e => e.key === 'Escape' && close());
         });
     });
 
@@ -191,9 +182,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', e => {
             e.preventDefault();
-            const name = $('#name').value.trim();
-            const email = $('#email').value.trim();
-            const message = $('#message').value.trim();
+            const name = $('#name')?.value.trim();
+            const email = $('#email')?.value.trim();
+            const message = $('#message')?.value.trim();
             if (!name || !email || !message) return alert('Please fill all fields.');
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return alert('Invalid email.');
             alert('Thank you! We will reply soon.');
