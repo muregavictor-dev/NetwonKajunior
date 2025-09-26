@@ -1,24 +1,9 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     // ==============================
     // GLOBAL HELPERS
     // ==============================
     const $ = (sel, parent = document) => parent.querySelector(sel);
     const $$ = (sel, parent = document) => parent.querySelectorAll(sel);
-
-    // requestAnimationFrame scroll handler
-    let ticking = false;
-    function onScrollThrottled(callback) {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                callback();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
 
     // ==============================
     // MODULE 1: NAVIGATION + SCROLLING
@@ -51,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile menu toggle (click + keyboard)
+    // Mobile menu toggle
     if (menuToggle && navLinks) {
         const toggleMenu = () => {
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
@@ -90,42 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.toggle('active', link.getAttribute('href').includes(current));
         });
     }
-    window.addEventListener('scroll', () => onScrollThrottled(onScrollHandler));
-    onScrollHandler(); // initial
+    window.addEventListener('scroll', onScrollHandler);
+    onScrollHandler();
 
     // ==============================
-    // MODULE 2: SCROLL ANIMATIONS (Reusable Observer)
-    // ==============================
-    function animateOnScroll(selector) {
-        $$(selector).forEach(el => {
-            el.classList.add('reveal');
-            observer.observe(el);
-        });
-    }
-
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15, rootMargin: '0px 0px -100px 0px' });
-
-    [
-        '.section', '.highlight-card', '.value-card', '.initiative',
-        '.gallery-item', '.testimonial', '.policy-card', '.endorsement-card',
-        '.timeline-item', '.cta-banner', '.news-item'
-    ].forEach(sel => animateOnScroll(sel));
-
-    // ==============================
-    // MODULE 3: COUNTERS
+    // MODULE 2: COUNTERS (run immediately)
     // ==============================
     function animateCounter(el) {
-        if (prefersReducedMotion) {
-            el.textContent = el.dataset.target + (el.dataset.unit || '');
-            return;
-        }
         const target = parseInt(el.dataset.target, 10);
         const unit = el.dataset.unit || '';
         const duration = 2000;
@@ -140,20 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         requestAnimationFrame(step);
     }
-
-    const counterObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.8 });
-
-    $$('.count').forEach(c => counterObserver.observe(c));
+    $$('.count').forEach(c => animateCounter(c));
 
     // ==============================
-    // MODULE 4: TYPEWRITER EFFECT
+    // MODULE 3: TYPEWRITER EFFECT
     // ==============================
     const sloganContainer = $('.slogan.typewriter');
     if (sloganContainer) {
@@ -198,91 +144,75 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) startTypewriter();
-        }, { threshold: 0.5 }).observe(sloganContainer);
+        startTypewriter();
     }
 
     // ==============================
-    // MODULE 5: PARALLAX
+    // MODULE 4: PARALLAX
     // ==============================
-    const Parallax = (() => {
-        function parallaxScroll() {
-            if (prefersReducedMotion) return;
-            const rate = window.pageYOffset * -0.05;
-            $$('.background-container').forEach(bg => {
-                bg.style.transform = `translateY(${rate}px)`;
-            });
-        }
-        function init() {
-            window.addEventListener('scroll', () => onScrollThrottled(parallaxScroll));
-        }
-        return { init };
-    })();
+    function parallaxScroll() {
+        const rate = window.pageYOffset * -0.05;
+        $$('.background-container').forEach(bg => {
+            bg.style.transform = `translateY(${rate}px)`;
+        });
+    }
+    window.addEventListener('scroll', parallaxScroll);
 
     // ==============================
-    // MODULE 6: FLOATING SVG ELEMENTS
+    // MODULE 5: FLOATING SVG ELEMENTS
     // ==============================
-    const FloatingSVG = (() => {
-        function createFloatingElements(container, count = 5) {
-            if (prefersReducedMotion) return;
-            for (let i = 0; i < count; i++) {
-                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                svg.classList.add('floating-svg-element');
-                svg.style.left = Math.random() * 100 + '%';
-                svg.style.top = Math.random() * 100 + '%';
-                svg.style.width = '30px';
-                svg.style.height = '30px';
-                svg.setAttribute('viewBox', '0 0 24 24');
+    function createFloatingElements(container, count = 5) {
+        for (let i = 0; i < count; i++) {
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.classList.add('floating-svg-element');
+            svg.style.left = Math.random() * 100 + '%';
+            svg.style.top = Math.random() * 100 + '%';
+            svg.style.width = '30px';
+            svg.style.height = '30px';
+            svg.setAttribute('viewBox', '0 0 24 24');
 
-                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                if (Math.random() > 0.5) {
-                    path.setAttribute('d', 'M12 21.35l-1.45-1.32C5.4 15.36 ...'); // heart
-                    path.setAttribute('fill', 'rgba(255, 215, 0, 0.6)');
-                } else {
-                    path.setAttribute('d', 'M12 2l3.09 6.26L22 9.27 ...'); // star
-                    path.setAttribute('fill', 'rgba(76, 175, 80, 0.6)');
-                }
-                svg.appendChild(path);
-                svg.dataset.offset = Math.random() * Math.PI * 2;
-                svg.dataset.speed = 0.5 + Math.random() * 0.5;
-                container.appendChild(svg);
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            if (Math.random() > 0.5) {
+                path.setAttribute('d', 'M12 21.35l-1.45-1.32C5.4 15.36 ...'); // heart
+                path.setAttribute('fill', 'rgba(255, 215, 0, 0.6)');
+            } else {
+                path.setAttribute('d', 'M12 2l3.09 6.26L22 9.27 ...'); // star
+                path.setAttribute('fill', 'rgba(76, 175, 80, 0.6)');
             }
+            svg.appendChild(path);
+            svg.dataset.offset = Math.random() * Math.PI * 2;
+            svg.dataset.speed = 0.5 + Math.random() * 0.5;
+            container.appendChild(svg);
         }
+    }
 
-        function animateFloatingElements() {
-            if (prefersReducedMotion) return;
-            $$('.floating-svg-element').forEach(svg => {
-                const time = Date.now() * 0.001;
-                const offset = parseFloat(svg.dataset.offset);
-                const speed = parseFloat(svg.dataset.speed);
-                const bob = Math.sin(time * speed + offset) * 10;
-                const rotate = time * speed * 50 + offset * 10;
-                svg.style.transform = `translateY(${bob}px) rotate(${rotate}deg)`;
-            });
-            requestAnimationFrame(animateFloatingElements);
+    function animateFloatingElements() {
+        $$('.floating-svg-element').forEach(svg => {
+            const time = Date.now() * 0.001;
+            const offset = parseFloat(svg.dataset.offset);
+            const speed = parseFloat(svg.dataset.speed);
+            const bob = Math.sin(time * speed + offset) * 10;
+            const rotate = time * speed * 50 + offset * 10;
+            svg.style.transform = `translateY(${bob}px) rotate(${rotate}deg)`;
+        });
+        requestAnimationFrame(animateFloatingElements);
+    }
+
+    ['hero', 'about', 'work', 'contact'].forEach(id => {
+        const section = document.getElementById(id);
+        if (section) {
+            const floatingContainer = document.createElement('div');
+            floatingContainer.className = 'floating-elements';
+            section.appendChild(floatingContainer);
+            createFloatingElements(floatingContainer, 8);
         }
-
-        function init() {
-            ['hero', 'about', 'work', 'contact'].forEach(id => {
-                const section = document.getElementById(id);
-                if (section) {
-                    const floatingContainer = document.createElement('div');
-                    floatingContainer.className = 'floating-elements';
-                    section.appendChild(floatingContainer);
-                    createFloatingElements(floatingContainer, 8);
-                }
-            });
-            animateFloatingElements();
-        }
-
-        return { init };
-    })();
+    });
+    animateFloatingElements();
 
     // ==============================
-    // MODULE 7: PARTICLE CANVAS
+    // MODULE 6: PARTICLE CANVAS
     // ==============================
-    const ParticleCanvas = (() => {
+    (function () {
         let canvas, ctx, particles = [];
 
         function resizeCanvas() {
@@ -316,9 +246,8 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(animateParticles);
         }
 
-        function init() {
-            const particlesDiv = $('.particles');
-            if (!particlesDiv) return;
+        const particlesDiv = $('.particles');
+        if (particlesDiv) {
             canvas = document.createElement('canvas');
             canvas.id = 'particle-canvas';
             Object.assign(canvas.style, {
@@ -333,11 +262,10 @@ document.addEventListener('DOMContentLoaded', () => {
             createParticles();
             animateParticles();
         }
-        return { init };
     })();
 
     // ==============================
-    // MODULE 8: FORM HANDLING
+    // MODULE 7: FORM HANDLING
     // ==============================
     const contactForm = $('#contact form');
     if (contactForm) {
@@ -356,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==============================
-    // MODULE 9: LIGHTBOX GALLERY
+    // MODULE 8: LIGHTBOX GALLERY
     // ==============================
     $$('.gallery-item').forEach(item => {
         item.addEventListener('click', e => {
@@ -381,11 +309,4 @@ document.addEventListener('DOMContentLoaded', () => {
             document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
         });
     });
-
-    // ==============================
-    // INITIALIZE MODULES
-    // ==============================
-    Parallax.init();
-    FloatingSVG.init();
-    ParticleCanvas.init();
 });
