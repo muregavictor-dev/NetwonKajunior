@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -94,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     onScrollHandler(); // initial
 
     // ==============================
-    // MODULE 2: SCROLL ANIMATIONS (Reusable Observer)
+    // MODULE 2: SCROLL ANIMATIONS
     // ==============================
     function animateOnScroll(selector) {
         $$(selector).forEach(el => {
@@ -204,23 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==============================
-    // MODULE 5: PARALLAX
-    // ==============================
-    const Parallax = (() => {
-        function parallaxScroll() {
-            if (prefersReducedMotion) return;
-            const rate = window.pageYOffset * -0.05;
-            $$('.background-container').forEach(bg => {
-                bg.style.transform = `translateY(${rate}px)`;
-            });
-        }
-        function init() {
-            window.addEventListener('scroll', () => onScrollThrottled(parallaxScroll));
-        }
-        return { init };
-    })();
-
-    // ==============================
     // MODULE 6: FLOATING SVG ELEMENTS
     // ==============================
     const FloatingSVG = (() => {
@@ -237,10 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
                 if (Math.random() > 0.5) {
-                    path.setAttribute('d', 'M12 21.35l-1.45-1.32C5.4 15.36 ...'); // heart
+                    path.setAttribute('d', 'M12 21.35l-1.45-1.32C5.4 15.36 ...');
                     path.setAttribute('fill', 'rgba(255, 215, 0, 0.6)');
                 } else {
-                    path.setAttribute('d', 'M12 2l3.09 6.26L22 9.27 ...'); // star
+                    path.setAttribute('d', 'M12 2l3.09 6.26L22 9.27 ...');
                     path.setAttribute('fill', 'rgba(76, 175, 80, 0.6)');
                 }
                 svg.appendChild(path);
@@ -385,7 +367,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==============================
     // INITIALIZE MODULES
     // ==============================
-    Parallax.init();
     FloatingSVG.init();
     ParticleCanvas.init();
 });
+const slides = document.querySelectorAll('.about-slide');
+const dots = document.querySelectorAll('.about-dots .dot');
+let currentIndex = 0;
+let autoPlay = true; // set to false if you only want manual
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    dots[i].classList.remove('active');
+  });
+
+  slides[index].classList.add('active');
+  dots[index].classList.add('active');
+  currentIndex = index;
+}
+
+// Dot navigation
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    showSlide(index);
+  });
+});
+
+// Autoplay every 6s
+if (autoPlay) {
+  setInterval(() => {
+    let nextIndex = (currentIndex + 1) % slides.length;
+    showSlide(nextIndex);
+  }, 6000);
+}
