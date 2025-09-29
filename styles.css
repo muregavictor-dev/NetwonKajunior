@@ -148,7 +148,7 @@
         }
 
         #hero {
-            background: linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('491843750_1196083835329765_5291664243185572929_n.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('WhatsApp Image 2025-09-10 at 00.00.26_ce5a862d.jpg') center/cover no-repeat;
             color: var(--white);
             text-align: center;
             padding-top: 120px; /* Account for fixed header */
@@ -230,23 +230,7 @@
             justify-content: center;
         }
 
-        .cta-donate, .cta-volunteer {
-            background: linear-gradient(135deg, var(--accent-gold), #FFA000);
-            color: var(--green);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-            transition: var(--transition);
-            animation: pulse 2s infinite;
-        }
-
-        .cta-donate:hover, .cta-volunteer:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
-        }
+        
 
         .slogan {
             font-weight: 600;
@@ -312,128 +296,134 @@
     transform: translateY(0);
 }
 
-        /* Highlights Section */
-        .highlights {
-            background-color: var(--white);
-            padding: 4rem 2rem;
-            text-align: center;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow for separation */
-        }
 
-        .highlight-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+       /* ===== About Section ===== */
+.about-section {
+  position: relative;
+  background: url("IMG-20250728-WA0049.jpg") center/cover no-repeat;
+  color: var(--white);
+  padding: 8rem 2rem;
+  margin-top: 60px;   /* creates the gap after hero */
+  border-radius: 12px;
+}
 
-        .highlight-card {
-            flex: 1 1 250px; /* Flexible cards */
-            padding: 2.5rem 1.5rem;
-            background-color: var(--light-gray);
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 220px;
-        }
+.about-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* dark overlay for readability */
+}
 
-        .highlight-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        }
+.about-section .section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
 
-        .highlight-card i {
-            font-size: 3.5rem; /* Larger icons */
-            color: var(--green);
-            margin-bottom: 1rem;
-        }
+/* Wrapper & Slider */
+.about-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
 
-        .highlight-card .count {
-            font-size: 3rem; /* Large numbers */
-            font-weight: 700;
-            color: var(--black);
-            margin-bottom: 0.5rem;
-            line-height: 1;
-        }
+.about-slider {
+  position: relative;
+  overflow: hidden;
+}
 
-        .highlight-card p {
-            font-size: 1.1rem;
-            color: var(--gray);
-            font-weight: 500;
-        }
+/* Slides */
+.about-slide {
+  display: none;
+  animation: fadeIn 0.6s ease-in-out;
+  color: #fff;
+}
 
-        #about {
-            background-color: var(--white);
-            padding-top: 10rem; /* Adjust for hero section height */
-        }
+.about-slide.active {
+  display: block;
+}
 
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr; /* Text slightly wider */
-            gap: 3rem; /* Increased gap */
-            align-items: center;
-            text-align: left;
-        }
+.about-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #f1f1f1;
+}
 
-        .about-text p {
-            margin-bottom: 1.2rem;
-            font-size: 1.05rem;
-            color: var(--black);
-        }
+/* Education block */
+.education {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-        .education {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--dark-gray); /* Subtle separator */
-        }
+.education h3 {
+  color: #ffdd57;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
 
-        .education h3 {
-            color: var(--green);
-            margin-bottom: 1.5rem;
-            font-size: 1.6rem;
-            font-weight: 600;
-        }
+.education-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
 
-        .education-item {
-            display: flex;
-            align-items: flex-start; /* Align icon and text at the top */
-            margin-bottom: 1.5rem;
-        }
+.education-icon {
+  font-size: 2rem;
+  color: #00ffae;
+  margin-right: 1.2rem;
+  min-width: 2rem;
+}
 
-        .education-icon {
-            font-size: 2rem; /* Larger icon */
-            color: var(--light-green); /* Lighter green for icons */
-            margin-right: 1.2rem;
-            min-width: 2rem; /* Prevent icon from squishing */
-        }
+.education-info h4 {
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
 
-        .education-info h4 {
-            margin-bottom: 0.4rem;
-            font-size: 1.2rem;
-            color: var(--black);
-            font-weight: 600;
-        }
+.education-info p {
+  font-size: 0.95rem;
+  color: #ddd;
+}
 
-        .education-info p {
-            font-size: 0.95rem;
-            color: var(--gray);
-        }
+/* ===== Dots Navigation at Bottom ===== */
+.about-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 2rem;
+}
 
-        .about-img img {
-            width: 100%;
-            max-width: 450px; /* Constrain max width for image */
-            height: auto;
-            object-fit: cover;
-            border-radius: 12px; /* More rounded corners */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow */
-        }
+.about-dots .dot {
+  width: 12px;
+  height: 12px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.about-dots .dot.active {
+  background: #52e204;
+  transform: scale(1.3);
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
         #vision {
             background-color: var(--light-gray);
@@ -452,60 +442,6 @@
             color: var(--black);
         }
 
-        blockquote {
-            font-style: italic;
-            font-size: 1.3rem; /* Larger quote */
-            color: var(--gray);
-            border-left: 5px solid var(--light-green); /* Lighter green border */
-            padding-left: 1.5rem;
-            margin: 3rem auto; /* Center quote and give more space */
-            max-width: 700px;
-            line-height: 1.8;
-        }
-
-        .kenyan-symbols {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2.5rem; /* Increased gap */
-            padding: 3rem 1rem;
-            background-color: var(--white); /* White background for the symbols area */
-            border-radius: 15px; /* Rounded container */
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
-            margin-top: 3rem;
-        }
-
-        .symbol {
-            flex: 1 1 200px; /* Flexible with a minimum width */
-            max-width: 280px;
-            background-color: var(--light-gray); /* Lighter background for individual symbols */
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            padding: 1.5rem;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .symbol:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .symbol img {
-            max-width: 120px; /* Smaller, focused images */
-            height: auto;
-            object-fit: contain;
-            margin-bottom: 1rem;
-            border-radius: 5px;
-        }
-
-        .symbol p {
-            font-size: 1.05rem;
-            color: var(--black);
-            font-weight: 600;
-            margin: 0;
-            line-height: 1.4;
-        }
 
         .values {
             display: flex;
@@ -1200,22 +1136,8 @@
             }
         }
 
-        /* Apply animations to sections */
-        .about-container > div:first-child {
-            animation: slideInFromLeft 1s ease-out;
-        }
 
-        .about-container > div:last-child {
-            animation: slideInFromRight 1s ease-out;
-        }
-
-        .highlight-card:nth-child(odd) {
-            animation: slideInFromLeft 0.8s ease-out;
-        }
-
-        .highlight-card:nth-child(even) {
-            animation: slideInFromRight 0.8s ease-out;
-        }
+        
 
         /* Enhanced Hover Effects */
         .social-link:hover {
@@ -1231,28 +1153,7 @@
             background: var(--gradient-blue);
         }
 
-        /* Glass Morphism Effect */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Neon Glow for Highlights */
-        .highlight-card .count {
-            text-shadow: 0 0 10px rgba(25, 118, 210, 0.5);
-            animation: glowPulse 3s infinite;
-        }
-
-        /* Parallax Effect */
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
+        
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
